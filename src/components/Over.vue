@@ -42,6 +42,7 @@
                         </a>
                     </div>
                 </div>
+                <Slider class="event-list-mobile"></Slider>
             </div>
         </main>
     </div>
@@ -49,10 +50,11 @@
 
 <script>
     import Topbar from "./Topbar";
+    import Slider from "./Slider";
 
     export default {
         name: "Over",
-        components: {Topbar}
+        components: {Slider, Topbar}
     }
 </script>
 
