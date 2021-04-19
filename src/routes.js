@@ -14,6 +14,9 @@ export const routes = [
     {
         name: "Event",
         path: '/event/:game/:id',
-        component: Event
+        component: Event,
+        props: {
+
+        }
     },
 ]

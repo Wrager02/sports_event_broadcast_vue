@@ -16,30 +16,12 @@
       <div class="events">
         <h2>Upcoming Events</h2>
         <div class="event-list">
-          <div>
-            <a href="/event/overwatch/1">
-              <img src="@/assets/thumbnails/overwatch.jpg">
-            </a>
-          </div>
-          <div>
-            <a href="/event/apex/1">
-              <img src="@/assets/thumbnails/apex.jpg">
-            </a>
-          </div>
-          <div>
-            <a href="/event/overwatch/2">
-              <img src="@/assets/thumbnails/overwatch.jpg">
-            </a>
-          </div>
-          <div>
-            <a href="/event/lol/1">
-              <img src="@/assets/thumbnails/lol.jpg">
-            </a>
-          </div>
-          <div>
-            <a href="/event/apex/2">
-              <img src="@/assets/thumbnails/apex.jpg">
-            </a>
+          <div class="event-thumbnail" v-for="(event, index) in events" :key="event.time">
+            <router-link :to="'/event/'+ toUrl(event.game) + '/' + index">
+              <img v-if="event.game === 'Overwatch'" :alt="event.game" src="@/assets/thumbnails/overwatch.jpg">
+              <img v-if="event.game === 'Apex Legends'" :alt="event.game" src="@/assets/thumbnails/apex.jpg">
+              <img v-if="event.game === 'League of Legends'" :alt="event.game" src="@/assets/thumbnails/lol.jpg">
+            </router-link>
           </div>
         </div>
         <Slider class="mobile-slider"></Slider>
@@ -59,6 +41,31 @@ export default {
     Slider,
     //Slider,
     Topbar
+  },
+  data() {
+    return {
+      events: []
+    }
+  },
+  methods: {
+    fetchEvents() {
+      fetch("http://localhost:8000/api/events", {
+        "method": "get"
+      }).then(response => {
+        response.json().then(json => {
+          this.events=json;
+          console.log(this.events)
+        })
+      }).catch(error => {
+        console.log(error)
+      })
+    },
+    toUrl(string) {
+      return string.toLowerCase().replaceAll(" ", "-")
+    }
+  },
+  created() {
+    this.fetchEvents();
   }
 }
 </script>
