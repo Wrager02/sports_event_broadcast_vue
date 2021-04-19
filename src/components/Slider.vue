@@ -1,52 +1,62 @@
 <template>
-    <!--swiper class="swiper" :options="swiperOption">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
-        <div class="swiper-button-prev" slot="button-prev"></div>
-        <div class="swiper-button-next" slot="button-next"></div>
-    </swiper-->
-  <div></div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <a href="/event/1">
+                    <img src="@/assets/overwatch.jpg">
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/event/1">
+                    <img src="@/assets/overwatch.jpg">
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/event/1">
+                    <img src="@/assets/overwatch.jpg">
+                </a>
+            </div>
+        </div>
+    </div>
 </template>
-
 <script>
-    //import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-    //import 'swiper/css/swiper.css'
+    // Import Swiper Vue.js components
+    import Swiper from 'swiper';
+
+    // Import Swiper styles
+    import 'swiper/swiper.min.css';
 
     export default {
-        name: "Slider",
-        components: {
-            //Swiper,
-            //SwiperSlide
+        components: {},
+        mounted() {
+            this.swiper = new Swiper(".swiper-container", {
+                init: true,
+                slidesPerView: "auto",
+                direction: "horizontal",
+                spaceBetween: 25,
+                loop: true,
+                speed: 800
+            });
+
+            setTimeout(this.slideNext, 5000);
         },
-        /*data() {
-            return {
-                swiperOption: {
-                    slidesPerView: 1,
-                    spaceBetween: 30,
-                    loop: true,
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev'
-                    }
-                }
+        methods: {
+            slideNext() {
+               this.swiper.slideNext();
+               setTimeout(this.slideNext, 5000);
             }
-        }*/
-    }
+        }
+    };
 </script>
+<style>
+    .swiper-slide img {
+        height: auto;
+        width: 100%;
+        border-radius: 10px;
+        transition: 0.3s ease;
+    }
 
-<style scoped>
-
+    .swiper-slide img:hover {
+        transform: scale(1.02);
+    }
 </style>

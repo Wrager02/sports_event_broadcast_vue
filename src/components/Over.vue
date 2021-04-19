@@ -17,32 +17,32 @@
         <h2>Upcoming Events</h2>
         <div class="event-list">
           <div>
-            <a href="/event/1">
-              <img src="@/assets/overwatch.jpg">
+            <a href="/event/overwatch/1">
+              <img src="@/assets/thumbnails/overwatch.jpg">
             </a>
           </div>
           <div>
-            <a href="/event/1">
-              <img src="@/assets/overwatch.jpg">
+            <a href="/event/apex/1">
+              <img src="@/assets/thumbnails/apex.jpg">
             </a>
           </div>
           <div>
-            <a href="/event/1">
-              <img src="@/assets/overwatch.jpg">
+            <a href="/event/overwatch/2">
+              <img src="@/assets/thumbnails/overwatch.jpg">
             </a>
           </div>
           <div>
-            <a href="/event/1">
-              <img src="@/assets/overwatch.jpg">
+            <a href="/event/lol/1">
+              <img src="@/assets/thumbnails/lol.jpg">
             </a>
           </div>
           <div>
-            <a href="/event/1">
-              <img src="@/assets/overwatch.jpg">
+            <a href="/event/apex/2">
+              <img src="@/assets/thumbnails/apex.jpg">
             </a>
           </div>
         </div>
-        <!--Slider class="event-list-mobile"></Slider-->
+        <Slider class="mobile-slider"></Slider>
       </div>
     </main>
   </div>
@@ -50,11 +50,13 @@
 
 <script>
 import Topbar from "./Topbar";
+import Slider from "./Slider";
 //import Slider from "./Slider";
 
 export default {
   name: "Over",
   components: {
+    Slider,
     //Slider,
     Topbar
   }
@@ -169,6 +171,10 @@ export default {
   transform: scale(1.02);
 }
 
+.mobile-slider {
+  display: none;
+}
+
 @media (max-width: 800px) {
   .content {
     background-position: right;
@@ -200,6 +206,16 @@ export default {
 
   .events h2 {
     text-align: center;
+    padding-bottom: 30px;
   }
+
+  .event-list {
+    display: none;
+  }
+
+  .mobile-slider {
+    display: block;
+  }
+
 }
 </style>

@@ -1,11 +1,11 @@
-import Over from './components/Over';
+
 import Event from "./components/Event";
 
 export const routes = [
     {
         path: '/',
         name: 'home',
-        component: Over
+        component: require('./components/Over.vue').default
     },
     {
         path: '/home',
@@ -13,7 +13,7 @@ export const routes = [
     },
     {
         name: "Event",
-        path: '/event/:id',
+        path: '/event/:game/:id',
         component: Event
     },
 ]
