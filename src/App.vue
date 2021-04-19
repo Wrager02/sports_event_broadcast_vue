@@ -1,16 +1,15 @@
 <template>
   <div id="app">
-    <Over class="overlay"></Over>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Over from './components/Over.vue'
 
 export default {
   name: 'App',
   components: {
-    Over
+
   }
 }
 </script>
@@ -27,8 +26,4 @@ export default {
   height: 100vh;
 }
 
-
-  .overlay {
-    z-index: 5;
-  }
 </style>

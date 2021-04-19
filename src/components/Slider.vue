@@ -1,5 +1,5 @@
 <template>
-    <swiper class="swiper" :options="swiperOption">
+    <!--swiper class="swiper" :options="swiperOption">
         <swiper-slide>Slide 1</swiper-slide>
         <swiper-slide>Slide 2</swiper-slide>
         <swiper-slide>Slide 3</swiper-slide>
@@ -13,20 +13,21 @@
         <div class="swiper-pagination" slot="pagination"></div>
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
-    </swiper>
+    </swiper-->
+  <div></div>
 </template>
 
 <script>
-    import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-    import 'swiper/css/swiper.css'
+    //import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+    //import 'swiper/css/swiper.css'
 
     export default {
         name: "Slider",
         components: {
-            Swiper,
-            SwiperSlide
+            //Swiper,
+            //SwiperSlide
         },
-        data() {
+        /*data() {
             return {
                 swiperOption: {
                     slidesPerView: 1,
@@ -42,7 +43,7 @@
                     }
                 }
             }
-        }
+        }*/
     }
 </script>
 
