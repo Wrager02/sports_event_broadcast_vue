@@ -2,7 +2,7 @@
 
     <div>
         <Topbar></Topbar>
-        <main>
+        <main :style="colordata">
             <div class="content">
                 <div>
                     <h2>UPCOMING GAME</h2>
@@ -101,10 +101,21 @@
             console.log(background);
             background.style.background = "linear-gradient(90deg, rgba(0, 0, 0, 0.85) 16%, rgba(255, 139, 224, 0) 52%), url(\"http://cdn.sollereder.at/" + this.game + ".jpg\")";
         },
+        data() {
+            return {
+                colordata: function(){
+                    return {
+                        '--color': "hsla(316, 100%, 77%, 1)",
+                        '--colorhover': "hsla(316, 90%, 70%, 1)"
+                    }
+                }
+            }
+        }
     }
 </script>
 
 <style scoped>
+
     .content {
         height: calc(100vh - 560px);
         z-index: 5;
@@ -176,11 +187,11 @@
     }
 
     .button:hover {
-        background-color: #ff8be0;
+        background-color: var(--color);
     }
 
     .button:active {
-        background-color: #c86db0;
+        background-color: var(--main-hover);
     }
 
     .button:hover .buttontext {
@@ -218,12 +229,12 @@
     }
 
     .share-button:hover {
-        background-color: #ff8be0;
+        background-color: var(--main-color);
         cursor: pointer;
     }
 
     .share-button:active {
-        background-color: #c86db0;
+        background-color: var(--main-hover);
     }
 
     .share-button:hover .onhover2 {
@@ -247,7 +258,7 @@
     .events h4 {
         font-size: 22px;
         font-weight: 600;
-        color: #FF8BE0;
+        color: var(--main-color);
     }
 
 
@@ -311,7 +322,7 @@
     }
 
     .vs {
-        color: #FF8BE0;
+        color: var(--main-color);
         font-size: 38px!important;
         font-weight: 600!important;
     }
