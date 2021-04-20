@@ -222,8 +222,8 @@ export default {
 
 svg {
   position: absolute;
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  width: 120px;
+  height: 120px;
 }
 
 .button {
@@ -282,7 +282,7 @@ svg {
 }
 
 .share-button:hover {
-  background-color: var(--color);
+  background-color: var(--color-hover);
   cursor: pointer;
 }
 

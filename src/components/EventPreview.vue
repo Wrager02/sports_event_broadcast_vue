@@ -3,12 +3,12 @@
     <div class="preview-flex">
       <div>
         <img src="@/assets/team_logos/fnatic.svg">
-        <p>FNATIC</p>
+        <p v-if="event">{{event.team1[0].name.toUpperCase()}}</p>
       </div>
       <span></span>
       <div>
         <img src="@/assets/team_logos/fnatic.svg">
-        <p>FNATIC</p>
+        <p v-if="event">{{event.team2[0].name.toUpperCase()}}</p>
       </div>
     </div>
     <p>26 / 04 / 21</p>
