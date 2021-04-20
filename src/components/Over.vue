@@ -50,8 +50,9 @@ export default {
   methods: {
     fetchEvents() {
       fetch("http://localhost:8000/api/events", {
-        "method": "get"
+        method: "get",
       }).then(response => {
+        console.log(response);
         response.json().then(json => {
           this.events=json;
           console.log(this.events)
