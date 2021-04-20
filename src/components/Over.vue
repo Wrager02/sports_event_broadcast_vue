@@ -17,7 +17,7 @@
         <h2>Upcoming Events</h2>
         <div class="event-list">
           <div class="event-thumbnail" v-for="(event, index) in events" :key="event.time">
-            <router-link :to="'/event/'+ toUrl(event.game) + '/' + index">
+            <router-link v-if="event" :to="'/event/'+ toUrl(event.game) + '/' + index">
               <img v-if="event.game === 'Overwatch'" :alt="event.game" src="@/assets/thumbnails/overwatch.jpg">
               <img v-if="event.game === 'Apex Legends'" :alt="event.game" src="@/assets/thumbnails/apex.jpg">
               <img v-if="event.game === 'League of Legends'" :alt="event.game" src="@/assets/thumbnails/lol.jpg">
@@ -62,6 +62,7 @@ export default {
       })
     },
     toUrl(string) {
+      console.log("String:", string.replaceAll(" ", "-"))
       return string.toLowerCase().replaceAll(" ", "-")
     }
   },
