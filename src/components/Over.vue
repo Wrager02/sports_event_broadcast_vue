@@ -6,11 +6,11 @@
         <div>
           <h2>GAME OF THE WEEK</h2>
           <h1>OVERWATCH</h1>
-            <a class="button" href="Over.vue">
+            <router-link class="button" :to="'/event/overwatch/1'">
               <p class="buttontext">WATCH NOW</p>
               <span></span>
               <i class="fas fa-long-arrow-alt-right onhover"></i>
-            </a>
+            </router-link>
         </div>
       </div>
       <div class="events">
@@ -175,6 +175,7 @@ export default {
   border-radius: 10px;
   transition: 0.3s ease;
 }
+
 
 .event-list img:hover {
   transform: scale(1.02);

@@ -1,5 +1,5 @@
 <template>
-  <a class="event-preview" href="">
+  <router-link class="event-preview" :to="'/event/'+ toUrl(event.game) + '/' + (event.id-1)">
     <div class="preview-flex">
       <div>
         <img src="@/assets/team_logos/fnatic.svg">
@@ -11,8 +11,8 @@
         <p v-if="event">{{event.team2[0].name.toUpperCase()}}</p>
       </div>
     </div>
-    <p>26 / 04 / 21</p>
-  </a>
+    <p>{{ event.time.replace("T", " ").replace("Z", "") }}</p>
+  </router-link>
 </template>
 
 <script>
@@ -20,6 +20,12 @@ export default {
   name: "EventPreview",
   props: {
     event: Object
+  },
+  methods: {
+    toUrl(string) {
+      console.log("String:", string.replaceAll(" ", "-"))
+      return string.toLowerCase().replaceAll(" ", "-")
+    }
   }
 }
 </script>

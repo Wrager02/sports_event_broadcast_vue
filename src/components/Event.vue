@@ -59,7 +59,7 @@
               <EventPreview v-show="index" :key="event.time" v-for="(event, index) in events" class="einsdrunter" :event="event"></EventPreview>
             </div>
             <div class="upcoming-games-mobile">
-              <EventPreview class="einsdrunter"></EventPreview>
+              <EventPreview class="einsdrunter" :event="events[2]"></EventPreview>
             </div>
           </div>
         </div>
@@ -106,6 +106,7 @@ export default {
           this.events = json;
           this.id = this.$route.params.id;
           this.event = this.events[this.id];
+          //this.events.splice(this.id, this.id);
           this.game = this.event.game;
           this.team1 = this.event.team1[0];
           this.team2 = this.event.team2[0];
@@ -128,7 +129,7 @@ export default {
           }
 
           let background = document.querySelector('.content');
-          background.style.background = "linear-gradient(90deg, rgba(0, 0, 0, 0.85) 16%, rgba(255, 139, 224, 0) 52%), url(\"http://cdn.sollereder.at/" + this.gamePictureUrl + ".jpg\")";
+          background.style.backgroundImage = "linear-gradient(90deg, rgba(0, 0, 0, 0.85) 16%, rgba(255, 139, 224, 0) 52%), url(\"http://cdn.sollereder.at/" + this.gamePictureUrl + ".jpg\")";
         })
       }).catch(error => {
         console.log(error)
@@ -155,9 +156,9 @@ export default {
 .content {
   height: calc(100vh - 560px);
   z-index: 5;
-  background-image: -moz-linear-gradient(90deg, rgba(0, 0, 0, 0.85) 16%, rgba(255, 139, 224, 0) 52%), url("../assets/overwatch.jpg");
-  background-image: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.85) 16%, rgba(255, 139, 224, 0) 52%), url("../assets/overwatch.jpg");
-  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 16%, rgba(255, 139, 224, 0) 52%), url("../assets/thumbnails/apex.jpg");
+  background-image: -moz-linear-gradient(90deg, rgba(0, 0, 0, 0.85) 16%, rgba(255, 139, 224, 0) 52%);
+  background-image: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.85) 16%, rgba(255, 139, 224, 0) 52%);
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 16%, rgba(255, 139, 224, 0) 52%);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -191,9 +192,6 @@ export default {
   margin-left: 30px;
 }
 
-.team img {
-  width: 180px;
-}
 
 .team p {
   text-align: center;
@@ -209,21 +207,26 @@ export default {
 }
 
 .logo-large {
-  width: 180px;
-  height: 180px;
-  position: relative;
+  height: 140px;
+  display: flex;
+  align-items: center;
+}
+
+
+.logo-large :nth-child(1) {
+  width: 140px;
+  max-height: 120px;
 }
 
 .logo-medium {
-  width: 120px;
   height: 120px;
-  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-svg {
-  position: absolute;
-  width: 120px;
-  height: 120px;
+.logo-medium :nth-child(1) {
+  width: auto;
+  height: 80px;
 }
 
 .button {
@@ -362,7 +365,7 @@ svg {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 500px;
+  width: 570px;
 }
 
 .team-splitter img {
@@ -463,7 +466,7 @@ svg {
 
     background-image: -moz-linear-gradient(0deg, rgba(0, 0, 0, 0.85) 30%, rgba(255, 139, 224, 0) 68%), url("../assets/overwatch.jpg");
     background-image: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 0.85) 30%, rgba(255, 139, 224, 0) 68%), url("../assets/overwatch.jpg");
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 30%, rgba(255, 139, 224, 0) 68%), url("../assets/overwatch.jpg");
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 30%, rgba(255, 139, 224, 0) 68%);
   }
 
   .content > div {
@@ -497,6 +500,27 @@ svg {
     font-size: 35px;
     margin-right: 15px;
     margin-left: 15px;
+  }
+
+  .logo-large {
+    height: 80px;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-large :nth-child(1) {
+    width: 100px;
+    max-height: 75px;
+  }
+
+  .logo-medium {
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-medium :nth-child(1) {
+    height: 35px;
   }
 
   .button {
