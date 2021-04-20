@@ -1,7 +1,7 @@
 <template>
     <div>
         <nav class="navbar">
-            <a href="Over.vue">
+            <a href="/">
                 <img src="@/assets/logo.svg">
                 <p>streamhase</p>
             </a>
